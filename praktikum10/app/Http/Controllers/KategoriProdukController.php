@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Produk;
+use App\Models\KategoriProduk;
 
-class ProdukController extends Controller
+class KategoriProdukController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $produk = Produk::getAllProduk();
+        $kategoriProduk = KategoriProduk::getAllKategoriProduk();
 
         //arahkan ke view produk
-        return view('admin.produk.produk', compact('produk'));
+        return view('admin.produk.kategoriProduk', compact('kategoriProduk'));
     }
 
     /**
@@ -66,3 +67,4 @@ class ProdukController extends Controller
         //
     }
 }
+

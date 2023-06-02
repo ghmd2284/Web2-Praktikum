@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,6 @@ Route::get('/shop', [ShopController::class, 'index']);
 
 //Bikin routing ke contact
 Route::get('/contact', [ContactController::class, 'index']);
+
+//Bikin Routing ke Kategori Prodk
+Route::get('/kategori', [KategoriProdukController::class, 'index']);
