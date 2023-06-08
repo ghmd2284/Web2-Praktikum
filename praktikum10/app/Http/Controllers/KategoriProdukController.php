@@ -16,7 +16,7 @@ class KategoriProdukController extends Controller
         $kategoriProduk = KategoriProduk::getAllKategoriProduk();
 
         //arahkan ke view produk
-        return view('admin.produk.kategoriProduk', compact('kategoriProduk'));
+        return view('admin.produk.kategori.kategori', compact('kategoriProduk'));
     }
 
     /**
@@ -24,7 +24,9 @@ class KategoriProdukController extends Controller
      */
     public function create()
     {
-        //
+        $kategoriProduk = KategoriProduk::all();
+
+        return view('admin.produk.kategori.create', compact('kategoriProduk'));
     }
 
     /**
@@ -32,7 +34,11 @@ class KategoriProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategoriProduk = new KategoriProduk;
+        $kategoriProduk->nama = $request->nama;
+        $kategoriProduk->save();
+
+        return redirect('kategori')->with('success', 'Kategori Produk Berhasi DiTambahkan');
     }
 
     /**
@@ -48,7 +54,10 @@ class KategoriProdukController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kategoriProduk = KategoriProduk::where('id', $id)->get();
+        
+        return view('admin.produk.kategori.edit', compact('kategoriProduk'));
+
     }
 
     /**
@@ -56,7 +65,13 @@ class KategoriProdukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $kategoriProduk = KategoriProduk::find($request->id);
+        $kategoriProduk->nama = $request->nama;
+        $kategoriProduk->save();
+
+        return redirect('kategori')->with('success', 'Kategori Produk Berhasi Diubah');
+
+        
     }
 
     /**
@@ -64,7 +79,11 @@ class KategoriProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kategoriProduk = KategoriProduk::find($id);
+        $kategoriProduk->delete();
+
+        return redirect('kategori')->with('success', 'Kategori Produk Berhasi Dihapus');
+        
     }
 }
 

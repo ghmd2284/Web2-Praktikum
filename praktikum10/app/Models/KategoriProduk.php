@@ -13,6 +13,9 @@ class KategoriProduk extends Model
     // Menghubukan ke db KategoriProduk
     protected $table = 'Kategori_produk';
 
+    //ubah timestamp false
+    public $timestamps = false;
+
     // kolam yang bisa diisi 
     protected $fillable = [
         'id',

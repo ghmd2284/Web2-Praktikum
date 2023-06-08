@@ -29,6 +29,35 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // Bikin routing ke produk admin
 Route::get('/produk', [ProdukController::class, 'index']);
+Route::prefix('produk')->group(function () {
+    //Bikin Routing ke create produk
+    Route::get('/create', [ProdukController::class, 'create']);
+    //Bikin Routing ke Store
+    Route::post('/store', [ProdukController::class, 'store'])->name('produk/store');
+    // Route edit produk by id
+    Route::get('/edit/{id}', [ProdukController::class, 'edit']);
+    // route update produk by id
+    Route::put('/update/{id}', [ProdukController::class, 'update']);
+
+    Route::get('/delete/{id}', [ProdukController::class, 'destroy']);
+});
+
+//Bikin Routing ke Kategori Prodk
+Route::get('/kategori', [KategoriProdukController::class, 'index']);
+
+Route::prefix('kategori')->group(function () {
+     //Bikin Routing ke create produk
+     Route::get('/create', [KategoriProdukController::class, 'create']);
+     //Bikin Routing ke Store
+     Route::post('/store', [KategoriProdukController::class, 'store'])->name('kategpri/store');
+     // Route edit produk by id
+     Route::get('/edit/{id}', [KategoriProdukController::class, 'edit']);
+     // route update produk by id
+     Route::put('/update/{id}', [KategoriProdukController::class, 'update']);
+ 
+     Route::get('/delete/{id}', [KategoriProdukController::class, 'destroy']);
+ });
+    
 
 
 //Bikin routing ke home 
@@ -43,5 +72,4 @@ Route::get('/shop', [ShopController::class, 'index']);
 //Bikin routing ke contact
 Route::get('/contact', [ContactController::class, 'index']);
 
-//Bikin Routing ke Kategori Prodk
-Route::get('/kategori', [KategoriProdukController::class, 'index']);
+

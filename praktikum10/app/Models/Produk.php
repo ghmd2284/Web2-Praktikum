@@ -13,6 +13,9 @@ class Produk extends Model
     // Menentukan nama table yang terhubung dengan model ini
     protected $table = 'produk';
 
+    //ubah timestamp false
+    public $timestamps = false;
+
     // kolam - kolam yang akan diisi secara massal
     protected $fillable = [
         'kode',

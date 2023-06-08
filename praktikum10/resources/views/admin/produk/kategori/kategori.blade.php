@@ -19,16 +19,19 @@
             Kategori Produk
         </div>
         <div class="card-body">
+            <a href="{{ url('kategori/create')}}" class="btn btn-primary">Create</a>
             <table id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nama</th>
+                        <th>Aksi</th>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>ID</th>
                         <th>Nama</th>
+                        <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -36,6 +39,10 @@
                         <tr>
                             <td>{{ $kat->id }}</td>
                             <td>{{ $kat->nama }}</td>
+                            <td><a href="{{ url('kategori/edit/' . $kat->id) }}" class="btn btn-warning">Edit</a>
+                                <a onclick="return confrim('Apakah anda yakin ingin menghapus data tabel?')"
+                                    href="{{ url('kategori/delete/' . $kat->id) }}" class="btn btn-danger">Hapus</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
