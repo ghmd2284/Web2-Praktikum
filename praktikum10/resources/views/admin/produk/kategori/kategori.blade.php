@@ -19,6 +19,11 @@
             Kategori Produk
         </div>
         <div class="card-body">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <a href="{{ url('kategori/create')}}" class="btn btn-primary">Create</a>
             <table id="datatablesSimple">
                 <thead>
