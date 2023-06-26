@@ -3,21 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Produk;
-use App\Models\KategoriProduk;
 
-class ShopController extends Controller
+class TampilanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $produk = Produk::getAllProduk();
-        $kat = KategoriProduk::getAllKategoriProduk();
-
-        //arahkan ke view dashboard
-        return view('front.shop', compact('produk','kat'));
+        //Arahin view Tampilan
+        return view('tampilan');
     }
 
     /**
